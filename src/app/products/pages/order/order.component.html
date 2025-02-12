@@ -17,18 +17,21 @@
   </div>
   <div class="p-toolbar-group-end">
     <p-button
+      (click)="changeOrder('name')"
       class="mr-2"
       label="Por nombre"
       icon="pi pi-sort"
       styleClass="p-button-success"
     />
     <p-button
+      (click)="changeOrder('canFly')"
       class="mr-2"
       label="Por volar"
       icon="pi pi-sort"
       styleClass="p-button-danger"
     />
     <p-button
+      (click)="changeOrder('color')"
       class="mr-2"
       label="Por color"
       icon="pi pi-sort"
@@ -40,7 +43,11 @@
 <div class="grid">
   <div class="col mt-2">
     <p-panel header="Héroes">
-      <p-table [value]="heroes" [tableStyle]="{ 'min-width': '50rem' }">
+      <!-- Si no ponemos en el sorBy como opcional en el sort-by.pipe.ts con el "?" entonces nos obliga a poner un parámetro -->
+      <p-table
+        [value]="heroes | sortBy : orderBy : sortDirection"
+        [tableStyle]="{ 'min-width': '50rem' }"
+      >
         <ng-template pTemplate="header">
           <tr>
             <th>Nombre</th>
@@ -52,7 +59,7 @@
           <tr>
             <td>{{ hero.name }}</td>
             <td>{{ hero.canFly | canFly | titlecase }}</td>
-            <td>{{ hero.color }}</td>
+            <td>{{ hero.color | titlecase }}</td>
           </tr>
         </ng-template>
       </p-table>

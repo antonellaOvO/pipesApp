@@ -8,6 +8,8 @@ import { Color, Hero } from '../../interfaces/hero.interface';
 })
 export class OrderComponent {
   public isUpperCase: boolean = false;
+  public orderBy?: keyof Hero;
+  public sortDirection: number = 1; // 1 = Ascendente, -1 = Descendente
 
   public heroes: Hero[] = [
     {
@@ -39,5 +41,15 @@ export class OrderComponent {
 
   toggleUpperCase(): void {
     this.isUpperCase = !this.isUpperCase;
+  }
+
+  /*changeOrder(value: keyof Hero): void {
+    this.orderBy = value;
+  }*/
+
+  // Método para cambiar la propiedad de ordenación y alternar la dirección de orden
+  changeOrder(value: keyof Hero): void {
+    this.sortDirection = this.orderBy === value ? -this.sortDirection : 1;
+    this.orderBy = value;
   }
 }

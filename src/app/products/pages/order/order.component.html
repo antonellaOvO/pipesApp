@@ -1,12 +1,19 @@
 <p-panel header="Pipes Personalizados" class="p-1">
-  <p>Pipes personalizados - creados por {{ "nosotros" | toggleCase : true }}</p>
+  <p>
+    Pipes personalizados - creados por
+    {{ "nosotros" | toggleCase : isUpperCase }}
+  </p>
   <!-- Si yo no pongo true, ni tampoco false, saldrá en minúcusla ya que el transform() en el toggle-case.pipe.ts tiene por defecto el valor false -->
   <!-- <p>Pipes personalizados - creados por {{ "nosotros" | toggleCase : true }}</p> -->
 </p-panel>
 
 <p-toolbar>
   <div class="p-toolbar-group-start">
-    <p-button label="ToggleCase" icon="pi pi-search" />
+    <p-button
+      label="ToggleCase"
+      icon="pi pi-search"
+      (click)="toggleUpperCase()"
+    />
   </div>
   <div class="p-toolbar-group-end">
     <p-button

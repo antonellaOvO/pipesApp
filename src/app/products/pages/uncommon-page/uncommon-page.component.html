@@ -46,4 +46,25 @@
       <pre>{{ clients | slice : 0 : -2 }}</pre>
     </p-fieldset>
   </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="Json Pipe" [toggleable]="true">
+      <pre>{{ person | json }}</pre>
+    </p-fieldset>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-fieldset legend="KeyValue Pipe" [toggleable]="true">
+      <ul>
+        <li *ngFor="let item of person | keyvalue">
+          {{ person | json }}
+        </li>
+        <hr />
+        <li *ngFor="let item of person | keyvalue">
+          <b>{{ item.key | titlecase }}:</b> {{ item.value }}
+        </li>
+        <!-- Si no le pusiera el pipe keyvalue, "person" no sería algo iterable -->
+      </ul>
+    </p-fieldset>
+  </div>
 </div>

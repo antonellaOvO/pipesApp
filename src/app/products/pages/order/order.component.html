@@ -1,3 +1,31 @@
 <p-panel header="Pipes Personalizados" class="p-1">
-  <p>Pipes personalizados - creados por {{ "nosotros" | toggleCase }}</p>
+  <p>Pipes personalizados - creados por {{ "nosotros" | toggleCase : true }}</p>
+  <!-- Si yo no pongo true, ni tampoco false, saldrá en minúcusla ya que el transform() en el toggle-case.pipe.ts tiene por defecto el valor false -->
+  <!-- <p>Pipes personalizados - creados por {{ "nosotros" | toggleCase : true }}</p> -->
 </p-panel>
+
+<p-toolbar>
+  <div class="p-toolbar-group-start">
+    <p-button label="ToggleCase" icon="pi pi-search" />
+  </div>
+  <div class="p-toolbar-group-end">
+    <p-button
+      class="mr-2"
+      label="Por nombre"
+      icon="pi pi-sort"
+      styleClass="p-button-success"
+    />
+    <p-button
+      class="mr-2"
+      label="Por volar"
+      icon="pi pi-sort"
+      styleClass="p-button-danger"
+    />
+    <p-button
+      class="mr-2"
+      label="Por color"
+      icon="pi pi-sort"
+      styleClass="p-button-help"
+    />
+  </div>
+</p-toolbar>

@@ -8,6 +8,7 @@ import { FieldsetModule } from 'primeng/fieldset';
 import { InputTextModule } from 'primeng/inputtext';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
+import { TableModule } from 'primeng/table';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     InputTextModule,
     MenubarModule,
     PanelModule,
+    TableModule,
     ToolbarModule,
   ],
 })
